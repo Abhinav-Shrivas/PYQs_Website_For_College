@@ -1,0 +1,405 @@
+const branches = {
+  IT: "Information Technology",
+  CSE: "Computer Science and Engineering",
+  ECE: "Electronics and Telecommunication Engineering",
+  EE: "Electrical Engineering",
+  CE: "Civil Engineering",
+  ME: "Mechanical Engineering",
+  IP: "Industrial and Production Engineering",
+  AIDS: "Artificial Intelligence and Data Science",
+  MT: "Mechatronics Engineering",
+};
+
+const semesters = [1,2,3,4,5,6,7,8];
+const ordinals = {
+  1: "first",
+  2: "second",
+  3: "third",
+  4: "fourth",
+  5: "fifth",
+  6: "sixth",
+  7: "seventh",
+  8: "eighth"
+};
+
+const subjects = {
+  CommonForAllBranches: {
+    first : [
+      "Engineering Chemistry",
+      "Mathematics-I",
+      "English",
+      "Basic Electrical and Electronics Engineering",
+      "Engineering Graphics",
+      "Engineering Physics",
+      "Computer Programming and Problem Solving",
+      "Basic Mechanical Engineering",
+      "Basic Civil Engineering",
+    ],
+    second: [
+      "Engineering Chemistry",
+      "Mathematics-II",
+      "English",
+      "Basic Electrical and Electronics Engineering",
+      "Engineering Graphics",
+      "Engineering Physics",
+      "Computer Programming and Problem Solving",
+      "Basic Mechanical Engineering",
+      "Basic Civil Engineering",
+    ],
+  },
+
+  IT: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Data Structure and Algorithm",
+      "Object Oriented Concept on C++",
+      "Electronics and Digital Circuits",
+    ],
+    fourth: [
+      "Discrete Structure",
+      "Analysis and Design of Algorithm",
+      "Computer Architecture",
+      "Principles of Communication",
+      "System Analysis and Software Engineering",
+    ],
+    fifth: [
+      "Professional Elective Course-1",
+      "Computer Network",
+      "Operating System",
+      "Data Base Management System",
+      "Internet and Web Technology",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Network Management",
+      "Data Mining",
+      "Cloud Computing",
+    ],
+    seventh: [
+      "Cloud Computing",
+      "Information Retrieval",
+      "Machine Learning",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  CSE: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Data Structures & Algorithms",
+      "Object Oriented Programming",
+      "Digital Electronics",
+    ],
+    fourth: [
+      "Discrete Structure",
+      "Database Management Systems",
+      "AI & Machine Learning",
+      "Design and Analysis of Algorithms",
+      "Computer Organization and Architecture",
+    ],
+    fifth: [
+      "Professional Elective Course-I",
+      "Deep Learning",
+      "Operating Systems",
+      "Computer Graphics & Multimedia",
+      "Professional Ethics",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Computer Networks",
+      "Software Engineering",
+      "Cryptography and Network Security",
+    ],
+    seventh: [
+      "Computer Vision",
+      "Compiler Design",
+      "Cryptography & Network Security",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  ECE: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Electronic Devices & Circuits",
+      "Signals & Systems",
+      "Network Analysis",
+    ],
+    fourth: [
+      "Electromagnetic Theory",
+      "Analog Integrated Circuits",
+      "Digital Circuits & Systems",
+      "Analog Communication",
+      "Communication N/W & Transmission Lines",
+    ],
+    fifth: [
+      "Professional Elective Course-l",
+      "Digital Communication",
+      "Linear Control Theory",
+      "Microprocessor, Microcontroller & Embedded System",
+      "Mobile Communication and Networks",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Digital Signal Processing",
+      "Analog & Digital VLSI Design",
+      "Microwave & Radar Engg.",
+    ],
+    seventh: [
+      "Optical Communication",
+      "CMOS VLSI Design",
+      "Antenna Wave Propagation",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  EE: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Circuit Theory & Network Analysis",
+      "Analog & Digital Electronics",
+      "Electrical Measurement & Measuring Instrument",
+    ],
+    fourth: [
+      "Electrical Engineering Materials",
+      "Electrical Machine-I",
+      "Power System-I",
+      "Electrical & Electronics Instruments",
+      "Electromagnetic Field Theory",
+    ],
+    fifth: [
+      "Professional Elective Course-I",
+      "Control System",
+      "Electrical Machine-II",
+      "Power Electronics-I",
+      "Power Sysem-II",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Microprocessor & Microcontroller",
+      "Power Electronics-II",
+      "Modern Power System",
+    ],
+    seventh: [
+      "High Voltage Engineering",
+      "Electrical Drives",
+      "Power System Control",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  CE: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Strength of Material",
+      "Engineering Geology",
+      "Building Design and Drawing",
+    ],
+    fourth: [
+      "Concrete Technology",
+      "Transportation Engineering",
+      "Geotechnical Engineering-I",
+      "Fluid Mechanics",
+      "Advance Surveying",
+    ],
+    fifth: [
+      "Professional Elective Course-l",
+      "Structural Analysis-1",
+      "Geotechnical Engineering-II",
+      "Structural Design & Drawing-1 (RCC)",
+      "Engineering Economics & Management",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Structural Analysis-II",
+      "Structural Design & Drawing-II (Steel)",
+      "Environmental Engineering-I",
+    ],
+    seventh: [
+      "Environmental Engg.-II",
+      "Structural Design & Drawing-III (RCC)",
+      "Estimation Costing & Tendering",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  ME: {
+    third: [
+      "Mathematics-III",
+      "Material Science",
+      "Mechanics of Materials-I",
+      "Manufacturing Process",
+      "Thermodynamics",
+    ],
+    fourth: [
+      "Energy Conversion Systems",
+      "Fluid Mechanics",
+      "Machine Drawing & CAD",
+      "Kinematics of Machines",
+      "Machine Design-I",
+    ],
+    fifth: [
+      "Professional Elective Course-I",
+      "Internal Combustion Engines",
+      "Turbo Machines",
+      "Dynamics of Machines",
+      "Entrepreneurship & Management Concepts",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Heat and Mass Transfer",
+      "Metal Cutting & Machine Tools",
+      "Industrial Engineering",
+    ],
+    seventh: [
+      "Refrigeration & Air Conditioning",
+      "Vibration & Noise Control",
+      "Advance Machine Design",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  IP: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Mechanics of Materials",
+      "Machine Drawing & CAD",
+      "Thermodynamics",
+    ],
+    fourth: [
+      "Engineering Economics and Management",
+      "Production Process",
+      "Theory of Machines & Mechanisms",
+      "Material Science & Metallurgy",
+      "Machine Design",
+    ],
+    fifth: [
+      "Professional Elective Course-I",
+      "Tool Engineering & Machine Tools",
+      "Metal Cutting Science",
+      "Work Study and Ergonomics",
+      "Fluid Mechanics",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Operations Research",
+      "Manufacturing Technology",
+      "Turbo Machines",
+    ],
+    seventh: [
+      "Industrial Robotics & Mechatronics",
+      "Industrial Engineering",
+      "Advance Manufacturing Process",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  AIDS: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Data Structure and Algorithm",
+      "Object Oriented Programming Using JAVA",
+      "Digital Logic Design & Computer Organization",
+    ],
+    fourth: [
+      "Discrete Structure",
+      "Introduction to AI & ML",
+      "Data Base Management System",
+      "Operating System",
+      "Microprocessor & Microcontroller",
+    ],
+    fifth: [
+      "Professional Elective Course-1",
+      "Deep Learning",
+      "Data Science",
+      "Digital & Wireless Communication",
+      "Professional Ethics",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-I",
+      "Compiler Design",
+      "Internet of Things (I.O.T.)",
+      "Robotics Technology",
+    ],
+    seventh: [
+      "Big Data Analysis",
+      "Digital Image Processing",
+      "Statistical Data Analysis",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+  MT: {
+    third: [
+      "Mathematics-III",
+      "Energy & Environmental Engineering",
+      "Digital Electronics",
+      "Strength of Materials",
+      "Electronic Instrumentation & Drives",
+    ],
+    fourth: [
+      "Manufacturing Process",
+      "Electronic Devices & Circuits",
+      "Theory of Machines",
+      "Microprocessor & Embedded Systems",
+      "Linear Control Theory",
+    ],
+    fifth: [
+      "Professional Elective Course-I",
+      "Thermodynamics & Applications",
+      "Internet of Things",
+      "Analog & Digital Communication",
+      "Professional Ethics",
+    ],
+    sixth: [
+      "Professional Elective Course-II",
+      "Open Elective Course-1",
+      "Industry 4.0",
+      "Data Communication & Computer Networks",
+      "Robotics and Automation",
+    ],
+    seventh: [
+      "Mechatronics System Design",
+      "EV and HV Technology",
+      "AI & ML",
+      "Professional Elective Course-II",
+      "Open Elective Course-III",
+    ],
+    eighth: ["Professional Elective Course-III", "Open Elective Course-IV"],
+  },
+};
+
+const currentYear = new Date().getFullYear();
+const previousYears = [];
+for (let i = 1; i <= 5; i++) {
+  previousYears.push(currentYear - i);
+}
+
+const years = [];
+for (let i = 0; i <= 1; i++) {
+  years.push(currentYear - i);
+}
+export {branches,subjects,semesters,previousYears,years,ordinals}; 

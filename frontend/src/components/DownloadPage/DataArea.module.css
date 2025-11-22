@@ -1,0 +1,437 @@
+/* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #ffffff;
+        } */
+
+.main-container {
+  margin: 2% ;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 2.5em;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #a0a0a0;
+  font-size: 1.1em;
+}
+
+.pdf-container {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 0 20px 0 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 150px 80px;
+  gap: 20px;
+  padding: 15px 20px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #e0e0e0;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.pdf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar */
+.pdf-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pdf-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.pdf-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  border-radius: 10px;
+}
+
+.pdf-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #7c7ff3, #9d71f8);
+}
+
+.pdf-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 150px 80px;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.pdf-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(99, 102, 241, 0.1);
+}
+
+.serial-no {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.pdf-name {
+  color: #e0e0e0;
+  font-size: 1.05em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdf-icon {
+  width: 35px;
+  height: 35px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.download-btn {
+  padding: 10px 20px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 8px;
+  color: #a5b4fc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.download-btn:hover {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: #6366f1;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.custom-checkbox:hover {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.custom-checkbox:checked {
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  border-color: transparent;
+}
+
+.custom-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.action-buttons {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bulk-download-btn {
+  max-width: 500px;
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bulk-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+.bulk-download-btn:active {
+  transform: translateY(-1px);
+}
+
+.reset-btn {
+  max-width: 500px;
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.selection-info {
+  margin-top: 20px;
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 0.95em;
+}
+
+.selection-count {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .table-header,
+  .pdf-item {
+    grid-template-columns: 50px 1fr 100px 60px;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .pdf-name {
+    font-size: 0.95em;
+  }
+
+  .download-btn {
+    padding: 8px 15px;
+    font-size: 0.60em;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bulk-download-btn,
+  .reset-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pdf-icon {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
+
+@media (max-width: 700px) {
+    .table-header {
+        grid-template-columns: 50px 1fr 100px 60px; /* tighter layout */
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .pdf-item {
+        grid-template-columns: 50px 1fr 100px 60px; /* same structure as header */
+        gap: 10px;
+        padding: 12px;
+        align-items: center;
+    }
+
+    .serial-no {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9em;
+    }
+
+    .pdf-name {
+        font-size: 0.9em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* truncate long names */
+    }
+
+    .download-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .table-header {
+        grid-template-columns: 40px 1fr 70px 40px; /* tighter layout */
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    .pdf-item {
+        grid-template-columns: 40px 1fr 70px 40px; 
+        gap: 6px;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .serial-no {
+        width: 25px;
+        height: 25px;
+        font-size: 0.75em;
+    }
+
+    .pdf-name {
+        font-size: 0.8em;
+        white-space: normal;     /* allow wrapping */
+        word-break: break-word;  /* wrap long words */
+    }
+
+    .download-btn {
+        padding: 4px 8px;
+        font-size: 0.5em;
+        min-width: 60px; /* keep button tappable */
+    }
+
+    .custom-checkbox {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+  .table-header {
+    display: none; /* Hide header on tiny screens */
+  }
+
+  .pdf-item {
+    display: flex;
+    flex-direction: column; /* stack elements */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .serial-no {
+    display: none; /* hide serial numbers */
+  }
+
+  .pdf-name {
+    font-size: 0.85em;
+    word-break: break-word; /* prevent overflow */
+  }
+
+  .download-btn {
+    width: 100%; /* full width button */
+    text-align: center;
+    font-size: 0.8em;
+    padding: 8px;
+  }
+
+  .checkbox-wrapper {
+    align-self: flex-end; /* move checkbox to right side */
+  }
+
+  h1 {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-size: 0.85em;
+  }
+
+  .bulk-download-btn,
+  .reset-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9em;
+  }
+
+  .selection-info {
+    font-size: 0.8em;
+  }
+}
